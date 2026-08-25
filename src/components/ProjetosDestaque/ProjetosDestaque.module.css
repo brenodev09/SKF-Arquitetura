@@ -1,0 +1,149 @@
+.secao {
+  padding: clamp(90px, 12vw, 160px) 0 clamp(70px, 9vw, 120px);
+  background: var(--off-white);
+}
+
+.secao .cabecalho {
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: clamp(48px, 6vw, 84px);
+}
+
+.cabecalhoTexto {
+  max-width: 780px;
+}
+
+.titulo {
+  margin-top: 22px;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.18;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.dica {
+  flex-shrink: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--marrom-cafe);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+  white-space: nowrap;
+}
+
+.dica::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--marrom-cafe);
+}
+
+@media (max-width: 640px) {
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .dica {
+    padding-bottom: 0;
+  }
+}
+
+.envoltorioCarrossel {
+  /* espaço reservado para o deslocamento vertical dos cartões (efeito cascata) */
+  padding-top: 130px;
+  margin-top: -130px;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 130px;
+  cursor: grab;
+}
+
+.swiper:active {
+  cursor: grabbing;
+}
+
+.slide {
+  width: min(340px, 76vw);
+  height: auto;
+}
+
+.cartao {
+  display: block;
+  color: inherit;
+  user-select: none;
+}
+
+.molduraImagem {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--grafite);
+  box-shadow: 0 24px 50px -24px rgba(31, 31, 31, 0.4);
+}
+
+.molduraImagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cartao:hover .molduraImagem img {
+  transform: scale(1.06);
+}
+
+.categoria {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(31, 31, 31, 0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(247, 245, 242, 0.3);
+  color: var(--off-white);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+.infoCartao {
+  padding-top: 18px;
+}
+
+.infoCartao h3 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--fonte-titulo);
+}
+
+.infoCartao p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--marrom-cafe);
+}
+
+@media (max-width: 640px) {
+  .envoltorioCarrossel {
+    padding-top: 90px;
+    margin-top: -90px;
+  }
+
+  .swiper {
+    padding-bottom: 90px;
+  }
+}

@@ -1,0 +1,75 @@
+.secao {
+  padding: clamp(90px, 12vw, 160px) 0;
+  background: var(--grafite);
+  color: var(--off-white);
+}
+
+.cabecalho {
+  max-width: 640px;
+  margin-bottom: clamp(56px, 7vw, 96px);
+}
+
+.cabecalho :global(.rotulo) {
+  color: var(--bege-areia);
+}
+
+.cabecalho :global(.rotulo)::before {
+  background: var(--bege-areia);
+}
+
+.titulo {
+  margin-top: 20px;
+  font-size: clamp(28px, 3.6vw, 46px);
+  color: var(--off-white);
+}
+
+.linhaEtapas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(247, 245, 242, 0.14);
+}
+
+.etapa {
+  background: var(--grafite);
+  padding: 40px 30px 0;
+}
+
+.numero {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 42px;
+  color: var(--bege-areia);
+  margin-bottom: 28px;
+}
+
+.etapa h3 {
+  font-size: 19px;
+  color: var(--off-white);
+  font-weight: 500;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(247, 245, 242, 0.18);
+  padding-top: 20px;
+}
+
+.etapa p {
+  margin-top: 14px;
+  padding-bottom: 40px;
+  font-size: 14px;
+  color: rgba(247, 245, 242, 0.66);
+  max-width: 30ch;
+}
+
+@media (max-width: 900px) {
+  .linhaEtapas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+  }
+}
+
+@media (max-width: 560px) {
+  .linhaEtapas {
+    grid-template-columns: 1fr;
+  }
+}

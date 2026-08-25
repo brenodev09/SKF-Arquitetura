@@ -1,0 +1,196 @@
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* O fundo (com backdrop-filter) vive numa camada própria, atrás do
+   conteúdo. Isso é proposital: aplicar backdrop-filter diretamente no
+   elemento position:fixed cria um novo "containing block" para seus
+   descendentes fixed (como o menu mobile), fazendo-os ficar presos à
+   altura do header em vez de cobrir a tela inteira. Mantendo o filtro
+   isolado nesta camada, o cabeçalho continua sendo relativo à viewport. */
+.fundo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background var(--transicao), backdrop-filter var(--transicao), border-color var(--transicao);
+}
+
+.rolado .fundo {
+  background: rgba(247, 245, 242, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--linha);
+}
+
+.conteudo {
+  position: relative;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 30px clamp(24px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding var(--transicao);
+}
+
+.rolado .conteudo {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.marca {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--grafite);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.marca span {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--marrom-cafe);
+}
+
+.navDesktop {
+  display: flex;
+  gap: clamp(20px, 2.4vw, 40px);
+}
+
+.navDesktop a {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.navDesktop a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--marrom-cafe);
+  transition: width 0.35s ease;
+}
+
+.navDesktop a:hover::after {
+  width: 100%;
+}
+
+.botaoOrcamento {
+  border: 1px solid var(--grafite);
+  padding: 11px 24px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background var(--transicao), color var(--transicao), border-color var(--transicao);
+}
+
+.botaoOrcamento:hover {
+  background: var(--grafite);
+  color: var(--off-white);
+}
+
+.botaoMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  z-index: 110;
+}
+
+.botaoMenu span {
+  display: block;
+  height: 1px;
+  background: var(--grafite);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.botaoMenu.aberto span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.botaoMenu.aberto span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.menuMobile {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  .navDesktop,
+  .botaoOrcamento {
+    display: none;
+  }
+
+  .botaoMenu {
+    display: flex;
+  }
+
+  .menuMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: var(--grafite);
+    padding: 100px clamp(24px, 8vw, 64px);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  .menuMobileAberto {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .menuMobile nav {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .menuMobile nav a {
+    font-family: var(--fonte-titulo);
+    font-size: 32px;
+    color: var(--off-white);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .menuMobileAberto nav a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .botaoOrcamentoMobile {
+    margin-top: 48px;
+    border: 1px solid var(--bege-areia);
+    color: var(--off-white);
+    display: inline-block;
+    width: fit-content;
+    padding: 14px 28px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}

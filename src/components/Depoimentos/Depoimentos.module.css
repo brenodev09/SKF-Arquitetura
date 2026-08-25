@@ -1,0 +1,155 @@
+.secao {
+  padding: clamp(90px, 12vw, 160px) 0;
+  background: var(--off-white);
+  overflow: hidden;
+}
+
+.cabecalho {
+  max-width: 640px;
+  margin-bottom: clamp(48px, 6vw, 76px);
+}
+
+.titulo {
+  margin-top: 20px;
+  font-size: clamp(28px, 3.6vw, 46px);
+}
+
+.envoltorioCarrossel {
+  width: 100%;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.cartao {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  max-width: 900px;
+  padding: clamp(36px, 5vw, 64px) 0;
+}
+
+.monograma {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--marrom-cafe);
+  color: var(--off-white);
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.corpo {
+  position: relative;
+}
+
+.aspas {
+  position: absolute;
+  top: -46px;
+  left: -6px;
+  font-family: var(--fonte-titulo);
+  font-size: 96px;
+  line-height: 1;
+  color: var(--bege-areia);
+  user-select: none;
+}
+
+.texto {
+  /* font-family: var(--fonte-titulo); */
+  font-size: clamp(20px, 2.2vw, 27px);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--grafite);
+}
+
+.autor {
+  margin-top: 26px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nome {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nome::after {
+  content: '—';
+  margin-left: 10px;
+  color: var(--bege-areia);
+}
+
+.projeto {
+  font-size: 13px;
+  color: var(--marrom-cafe);
+}
+
+.rodapeCarrossel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(20px, 3vw, 36px);
+  padding-top: 24px;
+  border-top: 1px solid var(--linha);
+}
+
+.dica {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grafite-suave);
+}
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estiliza os bullets nativos do Swiper para seguir a identidade da marca */
+.paginacao :global(.swiper-pagination-bullet) {
+  width: 26px;
+  height: 2px;
+  border-radius: 0;
+  background: var(--linha);
+  opacity: 1;
+  margin: 0 !important;
+  transition: background var(--transicao), width var(--transicao);
+}
+
+.paginacao :global(.swiper-pagination-bullet-active) {
+  background: var(--marrom-cafe);
+  width: 42px;
+}
+
+@media (max-width: 640px) {
+  .cartao {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .monograma {
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+  }
+
+  .aspas {
+    top: -36px;
+    font-size: 70px;
+  }
+
+  .rodapeCarrossel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

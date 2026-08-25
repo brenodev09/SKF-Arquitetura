@@ -1,0 +1,83 @@
+.rodape {
+  background: var(--grafite);
+  color: rgba(247, 245, 242, 0.75);
+  padding: clamp(64px, 8vw, 96px) 0 28px;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr;
+  gap: 40px;
+  padding-bottom: clamp(48px, 6vw, 72px);
+  border-bottom: 1px solid rgba(247, 245, 242, 0.14);
+}
+
+.marca {
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  color: var(--off-white);
+  font-weight: 600;
+}
+
+.marca span {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bege-areia);
+}
+
+.slogan {
+  margin-top: 18px;
+  font-size: 14px;
+  max-width: 34ch;
+  color: rgba(247, 245, 242, 0.6);
+}
+
+.rotuloBloco {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bege-areia);
+  margin-bottom: 18px;
+}
+
+.blocoLinks ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.blocoLinks a {
+  transition: color var(--transicao);
+}
+
+.blocoLinks a:hover {
+  color: var(--off-white);
+}
+
+.linhaBase {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(247, 245, 242, 0.45);
+}
+
+@media (max-width: 860px) {
+  .grade {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .grade {
+    grid-template-columns: 1fr;
+  }
+
+  .linhaBase {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

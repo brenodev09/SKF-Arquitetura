@@ -1,0 +1,30 @@
+.botao {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--marrom-cafe);
+  color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 30px -10px rgba(31, 31, 31, 0.45);
+  z-index: 90;
+  transition: transform var(--transicao), background var(--transicao);
+}
+
+.botao:hover {
+  background: var(--grafite);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 640px) {
+  .botao {
+    width: 50px;
+    height: 50px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
