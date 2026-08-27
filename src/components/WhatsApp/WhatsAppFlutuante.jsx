@@ -1,9 +1,9 @@
 import estilos from './WhatsAppFlutuante.module.css';
 
-const NUMERO_WHATSAPP = '5516999999999';
+const NUMERO_WHATSAPP = '55 16 99769-9384';
 
 export default function WhatsAppFlutuante() {
-  const link = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
+  const link = `https://api.whatsapp.com/message/7TSW3KSJZ7ZUE1?autoload=1&app_absent=0&utm_source=ig${encodeURIComponent(
     'Olá! Gostaria de solicitar um orçamento com a SKF Arquitetura.'
   )}`;
 
